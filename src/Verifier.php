@@ -4,8 +4,9 @@ namespace acurrieclark\PhpPasswordVerifier;
 use acurrieclark\PhpPasswordVerifier\Exception\SetConstraintException;
 
 /**
-*
+* Verifier Class
 */
+
 class Verifier
 {
 
