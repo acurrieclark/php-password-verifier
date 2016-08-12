@@ -1,0 +1,20 @@
+{
+    "name": "acurrieclark/php-password-verifier",
+    "description": "Framework agnostic password strength checker",
+    "require-dev": {
+        "phpunit/phpunit": "4.*"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alex Currie-Clark",
+            "email": "acurrieclark@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "acurrieclark\\PhpPasswordVerifier\\": "src"
+        }
+    }
+}
