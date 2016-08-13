@@ -41,6 +41,9 @@ Set the maximum allowed length of the password
 ##### setCheckContainsLetters(boolean $value)
 Set the flag to check that the password contains at least one letter
 
+##### setCheckContainsCapitals(boolean $value)
+Set the flag to check that the password contains at least one *capital* letter
+
 ##### setCheckContainsNumbers(boolean $value)
 Set the flag to check that the password contains at least one number
 

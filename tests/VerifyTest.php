@@ -66,6 +66,20 @@ class VerifyTest extends PHPUnit_Framework_TestCase {
     $this->assertEquals(empty($passwordVerifier->getErrors()), true);
   }
 
+  public function testContainsCapitalsFail() {
+    $passwordVerifier = new Verifier();
+    $passwordVerifier->setCheckContainsCapitals(true);
+    $this->assertEquals($passwordVerifier->checkPassword('asdf'), false);
+    $this->assertEquals(isset($passwordVerifier->getErrors()['capitals']), true);
+  }
+
+  public function testContainsCapitalsPass() {
+    $passwordVerifier = new Verifier();
+    $passwordVerifier->setCheckContainsCapitals(true);
+    $this->assertEquals($passwordVerifier->checkPassword('Asdf'), true);
+    $this->assertEquals(empty($passwordVerifier->getErrors()), true);
+  }
+
   public function testContainsNumberFail() {
     $passwordVerifier = new Verifier();
     $passwordVerifier->setCheckContainsNumbers(true);

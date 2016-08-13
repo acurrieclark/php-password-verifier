@@ -42,6 +42,10 @@ class Verifier
       $this->errors['letters'] = "Password must contain at least one letter";
     }
 
+    if ($this->checkCapitals && !preg_match('/[A-Z]/', $password)) {
+      $this->errors['capitals'] = "Password must contain at least one capital letter";
+    }
+
     if ($this->checkNumbers && !preg_match('/[0-9]/', $password)) {
       $this->errors['numbers'] = "Password must contain at least one number";
     }
@@ -88,7 +92,7 @@ class Verifier
     return $this;
   }
 
-  public function setCheckContainsLetters($value) {
+  public function setCheckContainsLetters($value = true) {
     if ($value !== false && $value !== true) {
       throw new SetConstraintException("setCheckContainsLetters value must be of type boolean", 4);
     }
@@ -98,7 +102,17 @@ class Verifier
     return $this;
   }
 
-  public function setCheckContainsNumbers($value) {
+  public function setCheckContainsCapitals($value = true) {
+    if ($value !== false && $value !== true) {
+      throw new SetConstraintException("setCheckContainsCapitals value must be of type boolean", 8);
+    }
+    else {
+      $this->checkCapitals = $value;
+    }
+    return $this;
+  }
+
+  public function setCheckContainsNumbers($value = true) {
     if ($value !== false && $value !== true) {
       throw new SetConstraintException("setCheckContainsNumbers value must be of type boolean", 5);
     }
@@ -108,7 +122,7 @@ class Verifier
     return $this;
   }
 
-  public function setCheckContainsSpecialChrs($value) {
+  public function setCheckContainsSpecialChrs($value = true) {
     if ($value !== false && $value !== true) {
       throw new SetConstraintException("setCheckContainsSpecialChrs value must be of type boolean", 6);
     }
@@ -118,7 +132,7 @@ class Verifier
     return $this;
   }
 
-  public function setCheckBlacklist($value) {
+  public function setCheckBlacklist($value = true) {
     if ($value !== false && $value !== true) {
       throw new SetConstraintException("setCheckBlacklist value must be of type boolean", 7);
     }

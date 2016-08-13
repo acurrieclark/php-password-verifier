@@ -53,6 +53,16 @@ class ExceptionTest extends PHPUnit_Framework_TestCase {
 
   /**
   * @expectedException acurrieclark\PhpPasswordVerifier\Exception\SetConstraintException
+  * @expectedExceptionCode 8
+  */
+
+  public function testCheckContainsCapitalsInputIsBoolean() {
+    $passwordVerifier = new Verifier();
+    $passwordVerifier->setCheckContainsCapitals('hello');
+  }
+
+  /**
+  * @expectedException acurrieclark\PhpPasswordVerifier\Exception\SetConstraintException
   * @expectedExceptionCode 5
   */
 
