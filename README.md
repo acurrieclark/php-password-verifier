@@ -64,7 +64,7 @@ Verify the password based on the constraints imposed. Returns boolean.
 ##### getErrors()
 Returns an array of errors relating to the verified password
 
-### Checking the Password
+### Utility
 
 ##### getSpecialChrs()
 **Static:** Returns an array of the special characters used to check against when `setCheckContainsSpecialChrs(true)` has been set. Handy if you want to warn your users which characters they need to include.
