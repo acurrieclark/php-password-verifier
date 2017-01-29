@@ -12,7 +12,7 @@ $ composer require acurrieclark/php-password-verifier
 // include autoloader if you haven't already
 include_once('vendor/autoload.php');
 
-use acurrieclark\PhpPasswordVerifier\Pusher;
+use acurrieclark\PhpPasswordVerifier\Verifier;
 
 // create an instance
 $passwordVerifier = new Verifier();
