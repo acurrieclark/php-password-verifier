@@ -7,8 +7,8 @@ class VerifyTest extends PHPUnit_Framework_TestCase {
   public function testStandardPass() {
     $passwordVerifier = new Verifier();
     $this->assertEquals($passwordVerifier->checkPassword('1245'), true);
-    $emptyCheck = empty($passwordVerifier->getErrors());
-    $this->assertEquals($emptyCheck, true);
+    $errors = $passwordVerifier->getErrors();
+    $this->assertEquals(empty($errors), true);
   }
 
   public function testMinLengthFail() {
@@ -22,8 +22,8 @@ class VerifyTest extends PHPUnit_Framework_TestCase {
     $passwordVerifier = new Verifier();
     $passwordVerifier->setMinLength(6);
     $this->assertEquals($passwordVerifier->checkPassword('1234567'), true);
-    $emptyCheck = empty($passwordVerifier->getErrors());
-    $this->assertEquals($emptyCheck, true);
+    $errors = $passwordVerifier->getErrors();
+    $this->assertEquals(empty($errors), true);
   }
 
   public function testChangeMinLength() {
@@ -37,8 +37,8 @@ class VerifyTest extends PHPUnit_Framework_TestCase {
     $passwordVerifier = new Verifier();
     $passwordVerifier->setMinLength(false);
     $this->assertEquals($passwordVerifier->checkPassword('1'), true);
-    $emptyCheck = empty($passwordVerifier->getErrors());
-    $this->assertEquals($emptyCheck, true);
+    $errors = $passwordVerifier->getErrors();
+    $this->assertEquals(empty($errors), true);
   }
 
   public function testMaxLengthFail() {
@@ -52,8 +52,8 @@ class VerifyTest extends PHPUnit_Framework_TestCase {
     $passwordVerifier = new Verifier();
     $passwordVerifier->setMaxLength(8);
     $this->assertEquals($passwordVerifier->checkPassword('12345678'), true);
-    $emptyCheck = empty($passwordVerifier->getErrors());
-    $this->assertEquals($emptyCheck, true);
+    $errors = $passwordVerifier->getErrors();
+    $this->assertEquals(empty($errors), true);
   }
 
   public function testContainsLetterFail() {
@@ -67,8 +67,8 @@ class VerifyTest extends PHPUnit_Framework_TestCase {
     $passwordVerifier = new Verifier();
     $passwordVerifier->setCheckContainsLetters(true);
     $this->assertEquals($passwordVerifier->checkPassword('1234asdf'), true);
-    $emptyCheck = empty($passwordVerifier->getErrors());
-    $this->assertEquals($emptyCheck, true);
+    $errors = $passwordVerifier->getErrors();
+    $this->assertEquals(empty($errors), true);
   }
 
   public function testContainsCapitalsFail() {
@@ -82,8 +82,8 @@ class VerifyTest extends PHPUnit_Framework_TestCase {
     $passwordVerifier = new Verifier();
     $passwordVerifier->setCheckContainsCapitals(true);
     $this->assertEquals($passwordVerifier->checkPassword('Asdf'), true);
-    $emptyCheck = empty($passwordVerifier->getErrors());
-    $this->assertEquals($emptyCheck, true);
+    $errors = $passwordVerifier->getErrors();
+    $this->assertEquals(empty($errors), true);
   }
 
   public function testContainsNumberFail() {
@@ -97,8 +97,8 @@ class VerifyTest extends PHPUnit_Framework_TestCase {
     $passwordVerifier = new Verifier();
     $passwordVerifier->setCheckContainsNumbers(true);
     $this->assertEquals($passwordVerifier->checkPassword('1234asdf'), true);
-    $emptyCheck = empty($passwordVerifier->getErrors());
-    $this->assertEquals($emptyCheck, true);
+    $errors = $passwordVerifier->getErrors();
+    $this->assertEquals(empty($errors), true);
   }
 
   public function testContainsSpecialChrsFail() {
@@ -141,7 +141,8 @@ class VerifyTest extends PHPUnit_Framework_TestCase {
     $this->assertEquals($passwordVerifier->checkPassword("*"), true);
     $this->assertEquals($passwordVerifier->checkPassword('"'), true);
     $this->assertEquals($passwordVerifier->checkPassword("'"), true);
-    $this->assertEquals(empty($passwordVerifier->getErrors()), true);
+    $errors = $passwordVerifier->getErrors();
+    $this->assertEquals(empty($errors), true);
   }
 
   public function testBlacklistFail() {
@@ -155,8 +156,8 @@ class VerifyTest extends PHPUnit_Framework_TestCase {
     $passwordVerifier = new Verifier();
     $passwordVerifier->setCheckBlacklist(true);
     $this->assertEquals($passwordVerifier->checkPassword('heebegeebeesyoulittlebeauty'), true);
-    $emptyCheck = empty($passwordVerifier->getErrors());
-    $this->assertEquals($emptyCheck, true);
+    $errors = $passwordVerifier->getErrors();
+    $this->assertEquals(empty($errors), true);
   }
 
   public function testChainedConstraints() {
