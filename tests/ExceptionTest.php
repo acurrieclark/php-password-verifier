@@ -2,7 +2,7 @@
 
 use acurrieclark\PhpPasswordVerifier\Verifier;
 
-class ExceptionTest extends PHPUnit_Framework_TestCase {
+class ExceptionTest extends PHPUnit\Framework\TestCase {
 
   /**
   * @expectedException acurrieclark\PhpPasswordVerifier\Exception\SetConstraintException
