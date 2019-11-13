@@ -2,7 +2,7 @@
 
 use acurrieclark\PhpPasswordVerifier\Verifier;
 
-class VerifyTest extends PHPUnit_Framework_TestCase {
+class VerifyTest extends PHPUnit\Framework\TestCase {
 
   public function testStandardPass() {
     $passwordVerifier = new Verifier();
