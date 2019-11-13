@@ -3,12 +3,8 @@
 namespace acurrieclark\PhpPasswordVerifier\Exception;
 
 /**
- * Class Exception
- *
- * @package acurrieclark\PhpPasswordVerifier\Exception
+ * Class Exception.
  */
-
 class SetConstraintException extends PasswordCheckerException
 {
-
 }

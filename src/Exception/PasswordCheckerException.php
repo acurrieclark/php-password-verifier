@@ -3,12 +3,8 @@
 namespace acurrieclark\PhpPasswordVerifier\Exception;
 
 /**
- * Class PasswordCheckerException
- *
- * @package acurrieclark\PhpPasswordVerifier\Exception
+ * Class PasswordCheckerException.
  */
-
 class PasswordCheckerException extends \Exception
 {
-
 }
